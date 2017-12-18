@@ -1,0 +1,119 @@
+html {
+    height: 100%;
+}
+
+body {
+    cursor: pointer;
+    background-image: url("http://theluxtraveller.com/wp-content/uploads/2013/11/ngorongoro-crater2.jpg");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Calligraffitti', cursive;
+    color: white;
+}
+
+
+h3 {
+    text-align: center;
+    font-family: 'Calligraffitti', cursive;
+    font-size: 30px;
+    color: white;
+}
+input {
+    margin-right: 60px;
+    padding-right: 10px;
+}
+
+h4 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 16px;
+}
+
+button{
+    font-family: 'Cinzel Decorative', cursive;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.gameboard {
+box-sizing: border-box;
+display: flex;
+border: 5px  #4d1919 solid;
+width: 1400px;
+height: 500px;
+border-radius: 88px;
+/* background-color: #DEB887; */
+
+}
+
+#two {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 125px;
+    
+    
+}
+
+.hole2 {
+    width: 150px;
+    height: 130px;
+    border: 2px  #4d1919 solid;
+    border-radius: 47%;
+    display: inline-block;
+    margin: 30px 20px 5px 20px;
+    background-color:#d9b38c;
+    box-shadow: inset 10px -10px  #4d1919;
+}
+
+.mancala1 {
+    width: 95px;
+    height: 300px;
+    border: 2px  #4d1919 solid;
+    border-radius: 65%;
+    margin: 100px 10px 0 15px;
+    background-color:#d9b38c;
+    box-shadow: inset 10px -10px  #4d1919;
+}
+
+#one {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-left: 123.5px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 290px;
+}
+
+.hole1 {
+    width: 150px;
+    height: 130px;
+    border: 2px  #4d1919 solid;
+    border-radius: 47%;
+    display: inline-block;
+    margin: 30px 20px 5px 20px;
+    background-color:#d9b38c;
+    box-shadow: inset 10px -10px  #4d1919;
+   
+}
+
+.mancala2 {
+    width: 95px;
+    height: 300px;
+    border: 2px  #4d1919 solid;
+    border-radius: 65%;
+    margin: 100px 10px 0 1160px;
+    position: relative;
+    background-color:#d9b38c;
+    box-shadow: inset 10px -10px  #4d1919;
+}
+
