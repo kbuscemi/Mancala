@@ -37,19 +37,16 @@ h4 {
 button{
     font-family: 'Cinzel Decorative', cursive;
     padding: 5px;
-    cursor: pointer;
-    
+    cursor: pointer;  
 }
 
 .gameboard {
-box-sizing: border-box;
-display: flex;
-border: 5px  #4d1919 solid;
-width: 1400px;
-height: 500px;
-border-radius: 88px;
-/* background-color: #DEB887; */
-
+    box-sizing: border-box;
+    display: flex;
+    border: 5px  #4d1919 solid;
+    width: 1400px;
+    height: 500px;
+    border-radius: 88px;
 }
 
 #two {
@@ -63,23 +60,13 @@ border-radius: 88px;
     
 }
 
-.hole2 {
+.hole {
     width: 150px;
     height: 130px;
     border: 2px  #4d1919 solid;
     border-radius: 47%;
     display: inline-block;
     margin: 30px 20px 5px 20px;
-    background-color:#d9b38c;
-    box-shadow: inset 10px -10px  #4d1919;
-}
-
-.mancala1 {
-    width: 95px;
-    height: 300px;
-    border: 2px  #4d1919 solid;
-    border-radius: 65%;
-    margin: 100px 10px 0 15px;
     background-color:#d9b38c;
     box-shadow: inset 10px -10px  #4d1919;
 }
@@ -94,26 +81,28 @@ border-radius: 88px;
     margin-top: 290px;
 }
 
-.hole1 {
-    width: 150px;
-    height: 130px;
-    border: 2px  #4d1919 solid;
-    border-radius: 47%;
-    display: inline-block;
-    margin: 30px 20px 5px 20px;
-    background-color:#d9b38c;
-    box-shadow: inset 10px -10px  #4d1919;
-   
-}
-
-.mancala2 {
+.mancala {
     width: 95px;
     height: 300px;
     border: 2px  #4d1919 solid;
     border-radius: 65%;
-    margin: 100px 10px 0 1160px;
-    position: relative;
     background-color:#d9b38c;
     box-shadow: inset 10px -10px  #4d1919;
+}
+
+.mancala1 {
+    margin: 100px 10px 0 15px;
+}
+
+.mancala2 {
+    margin: 100px 10px 0 1160px;
+    position: relative;
+}
+
+.hole {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
