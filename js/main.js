@@ -1,30 +1,36 @@
 /* Constants */
 /* Variables */
-var holes, currentPlayer;
+var holes, currentPlayer, winner;
 
 /* Cached Elements*/
-// scoreCountEl --- want to access it when score increases for each player
+var oneEl = document.getElementById('one');
+var twoEl = document.getElementById('two');
 
-function initialize () {
-    holes = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
-    currentPlayer = 'one';
-}
+
 
 // ~~~~Event Listeners ~~~~
 document.querySelector('body').addEventListener('click', handleClick);
 
 //~~~Functions~~~~
+function initialize () {
+    holes = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
+    currentPlayer = 'one';
+    winner = null;
+}
+
 function handleClick(e){
     var idx = parseInt(e.target.id.replace('holes', ''));
-    if ((currentPlayer === 'one' && idx >= 6 && idx <= 13) || (currentPlayer === 'two' && idx <= 6 && idx >= 13)) return;
+    if (currentPlayer === 'one' && idx > 5) return;
+    if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
     console.log('valid move');
   
     distStones();
     var lastHole = distStones(idx);
     // handle possible capture opposite
     switchTurns(lastHole, currentPlayer);
-        
-render();
+    winner = getWinner();
+
+    render();
 };
 
 function distStones(holeIdx) {
@@ -73,6 +79,8 @@ function winner() {
 }
 
 function getWinner(){
+    // temp during development
+    return null;
     holes[6] >= holes[13] ? alert('player one wins') : alert('player two wins');
 }
 
@@ -82,6 +90,12 @@ function render() {
         var holeEl = document.getElementById('holes' + idx);
         holeEl.innerHTML = numStones;
     });
+    if (winner) {
+
+    } else {
+        oneEl.style.border = currentPlayer === 'one' ? '2px dashed white' : '';
+        twoEl.style.border = currentPlayer === 'two' ? '2px dashed white' : '';
+    }
 }
 
 
@@ -89,16 +103,15 @@ function render() {
 initialize();
 render();
 
-/* Functions 
---(done)---- while loop when distributing gems into holes (will allow player to add gem
-    to their own mancala and skip over opponents mancala)
---- (done)--- display count will increase or decrease for each hole as gems are dropped in
-    or taken out of a hole during each turn
---- a 'snatch' function -- if person drops gem in an empty hole on THEIR side and there
+/* to do
+-- console log knows when its next players turn but can still click on any hole
+---  a 'snatch' function -- if person drops gem in an empty hole on THEIR side and there
     are gems across from that hole on their opponents side they snatch the gems in both
     holes and gems are dropped into their mancala
---- players score will increase as gems are dropped into the respective mancalas.
---- game is over when either side no longer has any gems left in either 6 holes.
+-- get pics of stones and put them in hole?
+--- players score will increase as gems are dropped into the respective mancalas ?
+-- display winner sign.
+-- show user who's turn it is
 */
 
 
