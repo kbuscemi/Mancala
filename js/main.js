@@ -7,30 +7,36 @@ var oneEl = document.getElementById('one');
 var twoEl = document.getElementById('two');
 
 
-
 // ~~~~Event Listeners ~~~~
 document.querySelector('body').addEventListener('click', handleClick);
+
+document.querySelector('button')
+.addEventListener('click', function(){
+    initialize();
+    render();
+});
 
 //~~~Functions~~~~
 function initialize () {
     holes = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     currentPlayer = 'one';
-    winner = null;
-}
+    gameWinner = null;
+};
 
 function handleClick(e){
+    if (e.target.className != 'reset'){
     var idx = parseInt(e.target.id.replace('holes', ''));
     if (currentPlayer === 'one' && idx > 5) return;
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
-    console.log('valid move');
-  
+    
     distStones();
     var lastHole = distStones(idx);
     // handle possible capture opposite
     switchTurns(lastHole, currentPlayer);
-    winner = getWinner();
+    gameWinner = winner();
 
     render();
+    }
 };
 
 function distStones(holeIdx) {
@@ -55,8 +61,7 @@ function distStones(holeIdx) {
         holeIdx++;
     }
     return holeIdx-=1;
-  }
-//-- will need an event listener when player resets game
+  };
 
 function switchTurns(lastStoneIdx, playerTurn){
      if (playerTurn === 'one' && lastStoneIdx === 6){
@@ -70,19 +75,27 @@ function switchTurns(lastStoneIdx, playerTurn){
     playerTurn === 'one' ? currentPlayer = 'two' : currentPlayer = 'one';
   }; 
 
+//   function snatchStones(){
+
+//   };
+
 function winner() {
-    if (holes[0] === 0 && holes[1]=== 0 && holes[2]=== 0 && holes[3]=== 0 && holes[4]=== 0 && holes[5]=== 0) {
+    if (holes[0] === 0 && holes[1] === 0 && holes[2]=== 0 && holes[3]=== 0 && holes[4]=== 0 && holes[5]=== 0) {
         getWinner();
-    } else if (holes[7] === 0 && holes[8]=== 0 && holes[9]=== 0 && holes[10]=== 0 && holes[11]=== 0 && holes[12]=== 0){
+    } 
+    if (holes[7] === 0 && holes[8]=== 0 && holes[9]=== 0 && holes[10]=== 0 && holes[11]=== 0 && holes[12]=== 0){
         getWinner();
     }
 }
 
 function getWinner(){
     // temp during development
-    return null;
-    holes[6] >= holes[13] ? alert('player one wins') : alert('player two wins');
-}
+    if (holes[6] > holes[13]) {
+        gameWinner = 'one'
+    } else {
+        gameWinner = 'two'
+    }
+};
 
 function render() {
     // render board (xfer holes array to dom)
@@ -90,28 +103,27 @@ function render() {
         var holeEl = document.getElementById('holes' + idx);
         holeEl.innerHTML = numStones;
     });
-    if (winner) {
 
+    document.querySelector('#p1score').innerText = holes[6]; 
+    document.querySelector('#p2score').innerText = holes[13]; 
+
+    if (gameWinner) {
+        document.querySelectorAll('h3').forEach(function(lm){
+            lm.innerHTML = ' Player ' + (gameWinner === 'one' ? 'One' : 'Two') + ' Won ! ';  
+        })
     } else {
         oneEl.style.border = currentPlayer === 'one' ? '2px dashed white' : '';
         twoEl.style.border = currentPlayer === 'two' ? '2px dashed white' : '';
     }
-}
-
-
+};
 
 initialize();
 render();
 
 /* to do
--- console log knows when its next players turn but can still click on any hole
 ---  a 'snatch' function -- if person drops gem in an empty hole on THEIR side and there
     are gems across from that hole on their opponents side they snatch the gems in both
     holes and gems are dropped into their mancala
--- get pics of stones and put them in hole?
---- players score will increase as gems are dropped into the respective mancalas ?
--- display winner sign.
--- show user who's turn it is
 */
 
 

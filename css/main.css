@@ -11,33 +11,64 @@ body {
 }
 
 h1 {
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Calligraffitti', cursive;
-    color: white;
+    font-size: 50px;
 }
 
-
 h3 {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+h1, h3 {
     text-align: center;
     font-family: 'Calligraffitti', cursive;
-    font-size: 30px;
     color: white;
+
 }
 input {
     margin-right: 60px;
     padding-right: 10px;
 }
 
-h4 {
+h5 {
     font-family: 'Calligraffitti', cursive;
-    font-size: 16px;
+    font-size: 24px;
+    color: white;
+    margin-left: 100px;
 }
 
-button{
+.score {
+    display: flex;
+}
+
+.count {
+    margin: 10px 20px 30px 30px;
+    font-size: 20px;
+    color: #4d1919;
+    font-family: 'Kalam', cursive;
+}
+
+#p1score, #p2score {
+    border: 1px solid #4d1919;
+    padding: 12px;
+    border-radius: 20%;
+    color: black;
+    font-family: 'Kalam', cursive;
+}
+
+.reset:hover {
+    text-shadow: 6px 6px 2px black;
+}
+
+.reset {
     font-family: 'Calligraffitti', cursive;
-    padding: 5px;
-    cursor: pointer;  
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    margin-left: 115px;
 }
 
 .gameboard {
@@ -50,16 +81,20 @@ button{
 }
 
 #two {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
     justify-content: space-around;
-    align-items: center;
-    margin-left: 125px;
-    
-    
+    margin: 20px 0 0 145px;  
 }
 
+#one {
+    justify-content: space-between;
+    margin: 290px 0 0 135px;
+}
+
+#one, #two {
+    display: flex;
+    position: absolute;
+    align-items: center;
+}
 
 .hole {
     width: 150px;
@@ -67,19 +102,16 @@ button{
     border: 2px  #4d1919 solid;
     border-radius: 47%;
     display: inline-block;
-    margin: 30px 20px 5px 20px;
+    margin: 0 10px 0 18px;
     background-color:#d9b38c;
     box-shadow: inset 10px -10px  #4d1919;
-}
-#one {
+    font-size: 20px;
     display: flex;
-    flex-direction: row;
-    position: absolute;
-    margin-left: 115px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-top: 290px;
+    font-family: 'Calligraffitti', cursive;
 }
+
 
 .mancala {
     width: 95px;
@@ -98,11 +130,3 @@ button{
     margin: 100px 10px 0 1160px;
     position: relative;
 }
-
-.hole {
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
