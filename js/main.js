@@ -5,13 +5,13 @@ var holes, currentPlayer, winner;
 /* Cached Elements*/
 var oneEl = document.getElementById('one');
 var twoEl = document.getElementById('two');
-
+var p1ScoreEl = document.querySelector('#p1score');
+var p2ScoreEl = document.querySelector('#p2score');
 
 // ~~~~Event Listeners ~~~~
-document.querySelector('body').addEventListener('click', handleClick);
+document.querySelector('.gameboard').addEventListener('click', handleClick);
 
-document.querySelector('button')
-.addEventListener('click', function(){
+document.querySelector('.reset').addEventListener('click', function(){
     initialize();
     render();
 });
@@ -24,72 +24,68 @@ function initialize () {
 };
 
 function handleClick(e){
-    if (e.target.className != 'reset'){
     var idx = parseInt(e.target.id.replace('holes', ''));
     if (currentPlayer === 'one' && idx > 5) return;
     if (currentPlayer === 'two' && (idx <= 6 || idx === 13)) return;
-    
-    distStones();
     var lastHole = distStones(idx);
-    // handle possible capture opposite
-    switchTurns(lastHole, currentPlayer);
+    
+    snatchStones(lastHole);
+    switchTurns(lastHole);
     gameWinner = winner();
 
+    winner();
     render();
-    }
 };
 
 function distStones(holeIdx) {
     var numStones = holes[holeIdx];
-    holes[holeIdx] = 0
-    holeIdx += 1
+    holes[holeIdx] = 0;
+    holeIdx += 1;
     while (numStones > 0) {
-        if (holeIdx > 13) {
-            holeIdx = 0
-        }
-
-        if (currentPlayer === "one" && holeIdx === 6) {
-            holes[holeIdx]++;
-            numStones--;
-        } else if (currentPlayer === "two" && holeIdx === 13) {
-            holes[holeIdx]++;
-            numStones--;
-        } else {
+        if (holeIdx > 13) holeIdx = 0;
+        if ((currentPlayer === 'one' && holeIdx !== 13) || (currentPlayer === 'two' && holeIdx !== 6))  {
             holes[holeIdx]++;
             numStones--;
         }
         holeIdx++;
     }
-    return holeIdx-=1;
+    return --holeIdx;
   };
 
-function switchTurns(lastStoneIdx, playerTurn){
-     if (playerTurn === 'one' && lastStoneIdx === 6){
-        currentPlayer = 'one';
-        return;
-    } 
-    if (playerTurn === 'two' && lastStoneIdx === 13){
-        currentPlayer = 'two';
-        return;
+  function onOwnSide(holeIdx){
+    if (currentPlayer === 'one' && holeIdx < 6) return true;
+    if (currentPlayer === 'two' && holeIdx > 6 && holeIdx < 13) return true;
+    return false;
+  }
+
+  function snatchStones(lastIdx){
+    if (
+        lastIdx === 6 || lastIdx === 13 ||
+        holes[lastIdx] > 1 || !onOwnSide(lastIdx) ||
+        holes[12 - lastIdx] === 0
+    )
+    return;
+    var manIdx = currentPlayer === 'one' ? 6 : 13;
+    holes[manIdx] += (1 + holes[12 - lastIdx]);
+    holes[lastIdx] = holes[12 - lastIdx] = 0;
+  };
+
+function switchTurns(lastIdx){
+    if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13))  {
+        currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
     }
-    playerTurn === 'one' ? currentPlayer = 'two' : currentPlayer = 'one';
-  }; 
-
-//   function snatchStones(){
-
-//   };
+  }
 
 function winner() {
-    if (holes[0] === 0 && holes[1] === 0 && holes[2]=== 0 && holes[3]=== 0 && holes[4]=== 0 && holes[5]=== 0) {
+    if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
         getWinner();
     } 
-    if (holes[7] === 0 && holes[8]=== 0 && holes[9]=== 0 && holes[10]=== 0 && holes[11]=== 0 && holes[12]=== 0){
+    if (holes[7] === 0 && holes[8] === 0 && holes[9] === 0 && holes[10] === 0 && holes[11] === 0 && holes[12] === 0) {
         getWinner();
     }
-}
+};
 
 function getWinner(){
-    // temp during development
     if (holes[6] > holes[13]) {
         gameWinner = 'one'
     } else {
@@ -98,19 +94,19 @@ function getWinner(){
 };
 
 function render() {
-    // render board (xfer holes array to dom)
     holes.forEach(function(numStones, idx){
         var holeEl = document.getElementById('holes' + idx);
         holeEl.innerHTML = numStones;
     });
 
-    document.querySelector('#p1score').innerText = holes[6]; 
-    document.querySelector('#p2score').innerText = holes[13]; 
+    p1ScoreEl.innerText = holes[6]; 
+    p2ScoreEl.innerText = holes[13]; 
 
     if (gameWinner) {
         document.querySelectorAll('h3').forEach(function(lm){
             lm.innerHTML = ' Player ' + (gameWinner === 'one' ? 'One' : 'Two') + ' Won ! ';  
-        })
+        });
+        oneEl.style.border = twoEl.style.border = '';
     } else {
         oneEl.style.border = currentPlayer === 'one' ? '2px dashed white' : '';
         twoEl.style.border = currentPlayer === 'two' ? '2px dashed white' : '';
@@ -128,29 +124,3 @@ render();
 
 
 
-
-/* 
-Rules of Mancala
-
-1. each hole starts off with 4 gems -- 24 gems on each side
-2. player one can click on hole 0-5 to begin the game
-3. first move - 4 gems will be dropped into each hole moving counter-clockwise
-4. each player will drop a gem in their own mancala if they pass by it. each player 
-   will AVOID their opponents mancala.
-5. player one's mancala is idx 6
-6. player two's mancala is idx 13
-7. If player one's last gem is dropped in their own mancala they go again 
-8. If player one's last gem is dropped in hole 7-12 (on player two's side) their
-   turn is over and it is player two's turn
-9. Player two goes
-10. If player two's last gem is dropped in their own mancala they go again 
-11. If player two's last gem is dropped in hole 0-5  (on player one's side) their
-   turn is over and it is player one's turn
-12. repeat steps 7-11
-13. if players last gem lands in an empty hole on THEIR SIDE and there are gems in
-   the hole across from their hole on opponents side they snatch the gems in both respective
-   holes and the gems are added to that players mancala -- increasing their gem count
-13. every time a gem is dropped in a players mancala the gem count increases 
-14. game is over when either holes 0-5 or 7-12 no longer contain any gems. 
-15. whoever has the most gems in their mancala at the end of the game wins.
-*/

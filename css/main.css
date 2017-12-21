@@ -34,7 +34,7 @@ h5 {
     font-family: 'Calligraffitti', cursive;
     font-size: 24px;
     color: white;
-    margin-left: 100px;
+    margin-left: 125px;
 }
 
 .score {
@@ -68,7 +68,7 @@ h5 {
     background-color: transparent;
     color: white;
     outline: none;
-    margin-left: 115px;
+    margin-left: 125px;
 }
 
 .gameboard {
