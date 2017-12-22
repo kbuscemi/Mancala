@@ -16,7 +16,7 @@ GH-Pages
 
 ## Getting Started: 
 
-You can play the game here: Rehttps://kbuscemi.github.io/Mancala/
+You can play the game here: https://kbuscemi.github.io/Mancala/
 
 ## Next Steps:
 One feature I'd love to add is to make my game page responsive so the game can be played on any screen size. Perhaps someone wants to play the game while watching a show - they could split their screens and the game layout wouldn't be affected by the smaller screen size. 
