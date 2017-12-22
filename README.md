@@ -19,7 +19,4 @@ GH-Pages
 You can play the game here: Rehttps://kbuscemi.github.io/Mancala/
 
 ## Next Steps:
-Ideally I would like to reverse the placement of Player 1 and Player 2's score count so each one is above their respective mancala's. It would 
-not only be more astheically pleasing but the users won't be confused when checking their scores. One feature I'd love to add is to make my game page 
-responsive so the game can be played on any screen size. Perhaps someone wants to play the game while watching a show - they could split their screens 
-and the game layout wouldn't be affected by the smaller screen size. 
+One feature I'd love to add is to make my game page responsive so the game can be played on any screen size. Perhaps someone wants to play the game while watching a show - they could split their screens and the game layout wouldn't be affected by the smaller screen size. 
