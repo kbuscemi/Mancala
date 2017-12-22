@@ -5,7 +5,7 @@ The word Mancala comes from the Arabic word naqala meaning "moved." Interesting 
 may explain why there are almost 200 versions of mancala, played all around the world. Regardless of where you are this game can be played literally 
 anywhere whether you have a mancala board or not!
 
-<a href="https://imgur.com/JhNM40B"><img src="https://i.imgur.com/JhNM40B.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/WQngbWC"><img src="https://i.imgur.com/WQngbWC.png" title="source: imgur.com" /></a>
 
 ## Technologies Used:
 HTML
