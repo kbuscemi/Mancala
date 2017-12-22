@@ -3,6 +3,8 @@
 var holes, currentPlayer, winner;
 
 /* Cached Elements*/
+var player1 = document.getElementById('player-1')
+var player2 = document.getElementById('player-2')
 var oneEl = document.getElementById('one');
 var twoEl = document.getElementById('two');
 var p1ScoreEl = document.querySelector('#p1score');
@@ -17,7 +19,7 @@ document.querySelector('.reset').addEventListener('click', function(){
 });
 
 //~~~Functions~~~~
-function initialize () {
+function initialize() {
     holes = [4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0];
     currentPlayer = 'one';
     gameWinner = null;
@@ -108,6 +110,8 @@ function render() {
         });
         oneEl.style.border = twoEl.style.border = '';
     } else {
+        player1.innerText = 'Player One ';
+        player2.innerText = 'Player Two ';
         oneEl.style.border = currentPlayer === 'one' ? '2px dashed white' : '';
         twoEl.style.border = currentPlayer === 'two' ? '2px dashed white' : '';
     }
@@ -115,12 +119,6 @@ function render() {
 
 initialize();
 render();
-
-/* to do
----  a 'snatch' function -- if person drops gem in an empty hole on THEIR side and there
-    are gems across from that hole on their opponents side they snatch the gems in both
-    holes and gems are dropped into their mancala
-*/
 
 
 

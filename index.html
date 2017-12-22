@@ -11,22 +11,20 @@
 </head>
 <body>
 
- <header>
-     <h1>Mancala</h1>
-</header>   
+<h1>Mancala</h1>
 
-<h5>Stone Count</h5>
-<div class="score">
-    <h4 class="count">Player 1:&nbsp;<span id="p1score"></span></h4>
-    <h4 class="count">Player 2:&nbsp;<span id="p2score"></span></h4>        
+<div id ="score1">
+    <h4>Player 1:&nbsp;<span id="p1score"></span></h4>
 </div>
 
-<button class="reset">New Game</button>
+<div id ="score2">
+    <h4>Player 2:&nbsp;<span id="p2score"></span></h4>        
+</div>
 
-<h3>Player Two</h3>
+<h3 id="player-2">Player Two</h3>
 
 <div class="gameboard">
-    <div id="two" style= "border: 3px dotted white; border-radius: 35px; padding: 15px">
+    <div id="two" style= "border: 3px dotted white; border-radius: 35px; padding: 10px">
         <div class="hole" id="holes12"></div>
         <div class="hole" id="holes11"></div>
         <div class="hole" id="holes10"></div>
@@ -38,7 +36,8 @@
     <div>
         <div class="mancala1 mancala hole" id="holes13"></div>
     </div>
-    <div id="one" style= "border: 3px dotted white; border-radius: 35px; padding: 15px">
+
+    <div id="one" style= "border: 3px dotted white; border-radius: 35px; padding: 10px">
             <div class="hole" id="holes0"></div>
             <div class="hole" id="holes1"></div>
             <div class="hole" id="holes2"></div>
@@ -50,11 +49,14 @@
     <div>
         <div class="mancala2 mancala hole" id="holes6"></div>
     </div>
+
+    <h3 id="player-1">Player One</h3>   
+
 </div>
 
-<h3>Player One</h3>
-
+    <button class="reset">New Game</button>
 
     <script src="js/main.js"></script>
+
 </body>
 </html>

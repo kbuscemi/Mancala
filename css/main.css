@@ -1,51 +1,51 @@
-html {
-    height: 160%;
-}
 
 body {
     cursor: pointer;
     background-image: url("http://theluxtraveller.com/wp-content/uploads/2013/11/ngorongoro-crater2.jpg");
     background-repeat: no-repeat;
-    height: 100%;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+h1, #player-1, #player-2 {
+    font-family: 'Calligraffitti', cursive;
+    color: white;
 }
 
 h1 {
     font-size: 50px;
-}
-
-h3 {
-    font-size: 30px;
-    margin-right: 20px;
-}
-
-h1, h3 {
+    width: 50%;
+    margin: 0 auto;
     text-align: center;
-    font-family: 'Calligraffitti', cursive;
-    color: white;
-
-}
-input {
-    margin-right: 60px;
-    padding-right: 10px;
 }
 
-h5 {
-    font-family: 'Calligraffitti', cursive;
-    font-size: 24px;
-    color: white;
-    margin-left: 125px;
+#player-1 {
+    font-size: 30px;
+    justify-content: flex-end;
+    margin-top: 100px;
+    margin-left: 600px;
 }
 
-.score {
-    display: flex;
+#player-2 {
+    font-size: 30px;
+    text-align: center;
+    width: 50%;
+    margin: 20px 20px -1px 330px;
 }
 
-.count {
-    margin: 10px 20px 30px 30px;
+#score1, #score2 {
     font-size: 20px;
     color: #4d1919;
     font-family: 'Kalam', cursive;
+}
+
+#score1 {
+    margin: -17px 20px -1px 130px;
+}
+
+#score2 {
+    float: right;
+    margin: -80px 133px 3px 0;
 }
 
 #p1score, #p2score {
@@ -56,38 +56,30 @@ h5 {
     font-family: 'Kalam', cursive;
 }
 
-.reset:hover {
-    text-shadow: 6px 6px 2px black;
-}
 
 .reset {
     font-family: 'Calligraffitti', cursive;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
     border: none;
     background-color: transparent;
     color: white;
     outline: none;
-    margin-left: 125px;
+    margin: 20px 30px 0 1150px;
+}
+
+.reset:hover {
+    text-shadow: 6px 6px 2px black;
 }
 
 .gameboard {
     box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
     border: 5px  #4d1919 solid;
     width: 1400px;
-    height: 500px;
+    height: 450px;
     border-radius: 88px;
-}
-
-#two {
-    justify-content: space-around;
-    margin: 20px 0 0 145px;  
-}
-
-#one {
-    justify-content: space-between;
-    margin: 290px 0 0 135px;
 }
 
 #one, #two {
@@ -96,9 +88,19 @@ h5 {
     align-items: center;
 }
 
+#one {
+    justify-content: space-between;
+    margin: 290px 0 0 204px;
+}
+
+#two {
+    justify-content: space-around;
+    margin: 20px 0 0 200px;  
+}
+
 .hole {
-    width: 150px;
-    height: 130px;
+    width: 130px;
+    height: 110px;
     border: 2px  #4d1919 solid;
     border-radius: 47%;
     display: inline-block;
@@ -112,10 +114,9 @@ h5 {
     font-family: 'Calligraffitti', cursive;
 }
 
-
 .mancala {
-    width: 95px;
-    height: 300px;
+    width: 80px;
+    height: 260px;
     border: 2px  #4d1919 solid;
     border-radius: 65%;
     background-color:#d9b38c;
@@ -123,10 +124,9 @@ h5 {
 }
 
 .mancala1 {
-    margin: 100px 10px 0 15px;
+    margin: 100px 10px 0 75px;
 }
 
 .mancala2 {
-    margin: 100px 10px 0 1160px;
-    position: relative;
+    margin: 100px 10px 0 1075px;
 }
