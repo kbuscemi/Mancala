@@ -22,15 +22,15 @@ h1 {
 #player-1 {
     font-size: 30px;
     justify-content: flex-end;
-    margin-top: 100px;
-    margin-left: 600px;
+    margin-top: 15px;
+    margin-left: 630px;
 }
 
 #player-2 {
     font-size: 30px;
     text-align: center;
-    width: 50%;
-    margin: 20px 20px -1px 330px;
+    margin: 0 auto;
+    margin: 56px 0 0 47px;
 }
 
 #score1, #score2 {
@@ -40,12 +40,14 @@ h1 {
 }
 
 #score1 {
-    margin: -17px 20px -1px 130px;
+    float: left;
+    margin: 60px 0 0 125px;
 }
 
 #score2 {
     float: right;
-    margin: -80px 133px 3px 0;
+    margin-top: 26px;
+    margin-right: 120px;
 }
 
 #p1score, #p2score {
@@ -63,13 +65,13 @@ h1 {
     font-size: 22px;
     border: none;
     background-color: transparent;
-    color: white;
+    color: black;
     outline: none;
-    margin: 20px 30px 0 1150px;
+    margin-left: 930px;
 }
 
 .reset:hover {
-    text-shadow: 6px 6px 2px black;
+    text-shadow: 6px 6px 2px white;
 }
 
 .gameboard {

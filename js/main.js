@@ -58,7 +58,7 @@ function distStones(holeIdx) {
     if (currentPlayer === 'one' && holeIdx < 6) return true;
     if (currentPlayer === 'two' && holeIdx > 6 && holeIdx < 13) return true;
     return false;
-  }
+  };
 
   function snatchStones(lastIdx){
     if (
@@ -73,10 +73,10 @@ function distStones(holeIdx) {
   };
 
 function switchTurns(lastIdx){
-    if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13))  {
+    if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13)) {
         currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
     }
-  }
+  };
 
 function winner() {
     if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
