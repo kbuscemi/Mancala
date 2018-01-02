@@ -58,7 +58,7 @@ function distStones(holeIdx) {
     if (currentPlayer === 'one' && holeIdx < 6) return true;
     if (currentPlayer === 'two' && holeIdx > 6 && holeIdx < 13) return true;
     return false;
-  };
+  }
 
   function snatchStones(lastIdx){
     if (
@@ -76,7 +76,7 @@ function switchTurns(lastIdx){
     if ((currentPlayer === 'one' && lastIdx !== 6) || (currentPlayer === 'two' && lastIdx !== 13)) {
         currentPlayer = currentPlayer === 'one' ? 'two' : 'one';
     }
-  };
+  }
 
 function winner() {
     if (holes[0] === 0 && holes[1] === 0 && holes[2] === 0 && holes[3] === 0 && holes[4] === 0 && holes[5] === 0) {
@@ -85,7 +85,7 @@ function winner() {
     if (holes[7] === 0 && holes[8] === 0 && holes[9] === 0 && holes[10] === 0 && holes[11] === 0 && holes[12] === 0) {
         getWinner();
     }
-};
+}
 
 function getWinner(){
     if (holes[6] > holes[13]) {
@@ -93,7 +93,7 @@ function getWinner(){
     } else {
         gameWinner = 'two'
     }
-};
+}
 
 function render() {
     holes.forEach(function(numStones, idx){
